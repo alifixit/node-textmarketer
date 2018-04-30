@@ -1,9 +1,13 @@
 {
   "name": "node-textmarketer",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "node-textmarketer",
-  "main": "app.js",
+  "main": "index.js",
   "author": {
     "name": "al"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "qs": "^6.5.1"
   }
 }
