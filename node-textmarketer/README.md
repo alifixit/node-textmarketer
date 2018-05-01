@@ -19,7 +19,7 @@ var password = "yourPassword";
 var sms = new textmarketer(username, password);
 
 
-sms.sendSMS({
+sms.send({
     "to": '01234123476',
     "message": 'test message',
     "orig": 'TESTER'

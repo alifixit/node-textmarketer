@@ -10,7 +10,7 @@ function sendSms(config) {
         axios(config).then(function (response) {
 
             var txtResponse = response.data.split('\r\n');
-            var returnMessage = {};
+            //var returnMessage = {};
             if (txtResponse[0] === "SUCCESS") {
                 returnMessage = {
                     "status": "ok",
@@ -41,11 +41,11 @@ class textmarketer {
                 },
                 baseURL: apiURL,
                 url: "?username=" + username + "&password=" + password,
-                timeout: 4000,
+                timeout: 2000,
                 withCredentials: false,
                 responseType: 'json',
                 responseEncoding: 'utf8',
-                maxContentLength: 20000,
+                maxContentLength: 2000,
                 validateStatus: function (status) {
 
                     return status >= 200 && status < 300; // 
