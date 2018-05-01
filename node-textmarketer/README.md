@@ -20,9 +20,9 @@ var sms = new textmarketer(username, password);
 
 
 sms.send({
-    "to": '01234123476',
-    "message": 'test message',
-    "orig": 'TESTER'
+    "to": '01234123476',            //the number you are sending to 
+    "message": 'test message',      // your message
+    "orig": 'TESTER'                // the name of the sender
 }).then(response => {
     console.log("sms sent ok");
     console.log(response);
@@ -35,9 +35,11 @@ sms.send({
 })
  ```
 
-If the response is successful will be an object in the form:
+If the response is successful will be a JSON object in the form:
 {"status" : "ok", "balance" : 100}
 
-response if fail will be
+where balance is the remaining credits.
+
+the response if fail will be
 
 {"status" : "error", "error" : "the error text returned from api here"}

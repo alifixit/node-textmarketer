@@ -5,24 +5,23 @@ const https = require("https");
 
 var apiURL = "https://api.textmarketer.co.uk/gateway/";
 
+//this only uses the non xml return at the moment.
+
 function sendSms(config) {
     return new Promise((resolve, reject) => {
         axios(config).then(function (response) {
 
             var txtResponse = response.data.split('\r\n');
-            //var returnMessage = {};
             if (txtResponse[0] === "SUCCESS") {
-                returnMessage = {
+                resolve({
                     "status": "ok",
                     "balance": parseInt(txtResponse[1]) || 0
-                };
-                resolve(returnMessage);
+                });
             } else if (txtResponse[0] === "FAILED") {
-                returnMessage = {
+                reject({
                     "error": txtResponse[1].split("Error: ")[1],
                     "status": "error"
-                };
-                reject(returnMessage);
+                });
             }
         }).catch(function (error) {
             reject(error);
